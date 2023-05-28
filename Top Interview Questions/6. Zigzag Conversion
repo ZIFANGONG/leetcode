@@ -1,0 +1,56 @@
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+
+        length = len(s)
+
+        if numRows == 1:
+            return s
+            
+        
+
+        str_list = [0 for i in range(numRows)]
+
+        for i in range(numRows):
+            str_list[i] = ""
+
+        down = True
+
+        row = 0
+
+
+        for c in range(len(s)):
+
+            if row == numRows - 1:
+                down = False
+
+            if row == 0:
+                down = True
+                
+
+            print(row)
+
+            str_list[row] += str(s[c])
+
+            if down:
+                row += 1
+            else:
+                row -=1
+
+
+        result = ""
+
+        for i in range(numRows):
+            result += str_list[i]
+
+        
+        return result
+            
+
+
+
+
